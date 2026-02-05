@@ -6,11 +6,6 @@ import { CreateBookingDto } from './dto/create-booking.dto';
 export class SeatsController {
     constructor(private readonly seatsService: SeatsService) { }
 
-    @Get()
-    getAll() {
-        return this.seatsService.findAll();
-    }
-
     @Post()
     bookSeat(@Body() body: CreateBookingDto) {
         const result = this.seatsService.bookSeats(body.userId, body.seatNumbers);
